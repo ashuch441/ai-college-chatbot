@@ -1,6 +1,7 @@
 import streamlit as st
 from chatbot import get_response
-from database import save_chat, get_chats, clear_chats
+from database import create_database, save_chat, get_chats, clear_chats
+create_database()
 
 st.set_page_config(
     page_title="AI College Chatbot",
