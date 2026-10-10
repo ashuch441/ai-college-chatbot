@@ -34,8 +34,23 @@ st.caption("Ask me anything about AI, Python, Machine Learning and Computer Visi
 name = st.text_input("👤 Enter your name")
 
 # Session state
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+    chats = get_chats()
+
+    for chat in chats:
+        st.session_state.messages.append({
+            "role": "user",
+            "content": chat[1]
+        })
+
+        st.session_state.messages.append({
+            "role": "assistant",
+            "content": chat[2]
+        })
+
 
 # Show previous messages
 for message in st.session_state.messages:
